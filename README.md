@@ -38,35 +38,35 @@ Professionals who complete Crafting Orders are rewarded with gold and, less ofte
 
     * Toys
       1. Potion of... Which One Was This Again?
-        - Description: Upon use, the player changes in appearance for 10 minutes, with one of the following changes selected at random: 1) grow in size, 2) shrink in size, 3) becomes a butterfly. The toy has an animation of the character drinking a potion and then the surprise of the effect.
-        - Special Effect: During the effect, the pitch of the character's voice deepens (for growth option), heightens (shrink option), 
+          - Description: Upon use, the player changes in appearance for 10 minutes, with one of the following changes selected at random: 1) grow in size, 2) shrink in size, 3) becomes a butterfly. The toy has an animation of the character drinking a potion and then the surprise of the effect.
+          - Special Effect: During the effect, the pitch of the character's voice deepens (for growth option), heightens (shrink option), 
       
       2. Alchemy Table
-        - Description: A table equipped with an array of herb-filled bowls next to colorful vials and flasks connected via tubes. The player puts on an exciting performance for all viewers. After the performance is complete, one of the possible cosmetic potions is selected at random. 
-        - Performance: The bunsen burner is turned on below the now-smoking central cauldron. The player juggles the bowls of herbs before pouring them into the main cauldron, each releasing an effect. The performance could depend on the type of cosmetic potion selected at random (i.e. a love potion, with ingredients that release hearts, red mist, etc.).
+          - Description: A table equipped with an array of herb-filled bowls next to colorful vials and flasks connected via tubes. The player puts on an exciting performance for all viewers. After the performance is complete, one of the possible cosmetic potions is selected at random. 
+          - Performance: The bunsen burner is turned on below the now-smoking central cauldron. The player juggles the bowls of herbs before pouring them into the main cauldron, each releasing an effect. The performance could depend on the type of cosmetic potion selected at random (i.e. a love potion, with ingredients that release hearts, red mist, etc.).
 
     * Pet
       1. Bubbling Cauldron
-        - Description: A small cauldron containing a bubbling liquid that releases smoke or another "magical" effects. Two legs made of the liquid sprout through two forcefully made holes near the bottom of the cauldron.
-        - Special Abilities: Occasionally brews a small potion that grants a minor buff to the player when consumed. Alternatively, the liquid could change every few minutes, with each liquid having a different effect.
+          - Description: A small cauldron containing a bubbling liquid that releases smoke or another "magical" effects. Two legs made of the liquid sprout through two forcefully made holes near the bottom of the cauldron.
+          - Special Abilities: Occasionally brews a small potion that grants a minor buff to the player when consumed. Alternatively, the liquid could change every few minutes, with each liquid having a different effect.
 
     * Armor Set
       1. **Master Alchemist’s Regalia**
-        - **Head**: **Alembic Visor** - A helmet with a glass dome filled with swirling fluid with a shiny mist.
-        - **Shoulders**: **Catalyst Epaulets** - Shoulder pads with arcing glass tubes filled with bubbling fluid matching the headpiece.
-        - **Chest**: **Transmuter’s Robe** - A robe with intricate patterns that glow faintly, with pockets filled with potions.
-        - **Gloves**: **Corrosion-Resistant Gauntlets** - Gloves with embedded tubes containing colorful liquids, similar to the Epaulets.
-        - **Belt**: **Elixir Sash** - A belt adorned with various flasks and pouches, each emitting a faint glow.
-        - **Leggings**: **Reactive Barrier Leggings** 
-        - **Boots**: **Sealed Boots**
+          - **Head**: **Alembic Visor** - A helmet with a glass dome filled with swirling fluid with a shiny mist.
+          - **Shoulders**: **Catalyst Epaulets** - Shoulder pads with arcing glass tubes filled with bubbling fluid matching the headpiece.
+          - **Chest**: **Transmuter’s Robe** - A robe with intricate patterns that glow faintly, with pockets filled with potions.
+          - **Gloves**: **Corrosion-Resistant Gauntlets** - Gloves with embedded tubes containing colorful liquids, similar to the Epaulets.
+          - **Belt**: **Elixir Sash** - A belt adorned with various flasks and pouches, each emitting a faint glow.
+          - **Leggings**: **Reactive Barrier Leggings** 
+          - **Boots**: **Sealed Boots**
             
      * Mount
       1. **Elixir-Infused Drake**
-        - **Description**: A majestic drake with scales that shimmer in various colors, as if made from liquid potions. Its wings leave a trail of colorful mist as it flies.
-        - **Features**: 
-          - **Special Animation**: The drake breathes out a cloud of multi-color alchemical fumes, each color emitting a unique effect (fireworks, fire, etc.)
-          - **Alchemy Station**: While mounted, the player can access a portable alchemy station on the drake's back to craft potions on the go.
-            - Would be powerful, first implementation of a portable profession station outside of engineering (to my knowledge?).
+          - **Description**: A majestic drake with scales that shimmer in various colors, as if made from liquid potions. Its wings leave a trail of colorful mist as it flies.
+          - **Features**: 
+            - **Special Animation**: The drake breathes out a cloud of multi-color alchemical fumes, each color emitting a unique effect (fireworks, fire, etc.)
+            - **Alchemy Station**: While mounted, the player can access a portable alchemy station on the drake's back to craft potions on the go.
+              - Would be powerful, first implementation of a portable profession station outside of engineering (to my knowledge?).
 
 * **New Status Effect: Flow State**
 
