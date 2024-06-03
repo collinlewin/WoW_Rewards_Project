@@ -18,20 +18,55 @@ Professionals who complete Crafting Orders are rewarded with gold and, less ofte
 
 * **New Currency: Artisan Tokens**
   - Overview
-    - Introduce a new currency, Artisan Tokens, awarded for completing crafting orders. Artisan Tokens can be exhanged for profession-specific cosmetic items (e.g., transmogs, toys, pets, mounts) at a vendor near their profession's station in the capital city.
+    - Introduce a new currency, Artisan Tokens, awarded for completing crafting orders. Artisan Tokens can be exhanged for profession-specific cosmetic items (e.g., transmogs, toys, pets, mounts) at each profession's Artisan Token vendor located near each respective profession station in the capital city.
     -   Cosmetics for each profession improve immersion through roleplay and customization, as they better reflect the player's identity as a distinguished member of their profession. Bind-on-pickup (BoP) cosmetics also seem relatively simple to implement with respect to (a lack of) economic impacts, etc.
   - Rate of Reward
     - _Do we encourage players to do Crafting Orders for hours by granting the currency for each order? Do we instead motivate diversity in play by granting the currency for only the first X orders each day? Does the former turn the currency into an unenjoyable grind to get any rewards? Does the latter turn the currency into a daily to-do that players end up dreading?_
-      - Limiting the number of token-awarding Crafting Orders per day allows a more fair opportunity to earn tokens for professions that struggle to obtain as many orders as other professions. As such, I will choose to grant Artisan tokens for the first 4 orders each day to match the current limit of 4 public Crafting Orders per day. Data on the current distribution of Crafting Orders might be more informative for determining this value, but 4 seems reasonable.
+      - Limiting the number of token-awarding Crafting Orders per day allows a more fair opportunity to earn tokens for professions that struggle to obtain as many orders as other professions. As such, I will choose to grant Artisan Tokens for the first 4 orders each day to match the current limit of 4 public Crafting Orders per day. Data on the current distribution of Crafting Orders might be more informative for determining this value, but 4 seems reasonable.
   - Amount of Reward
     - More impressive Crafting Orders (e.g., higher ilvl gear) should be rewarded with more Artisan tokens as an extra Reward of Glory that praises the player for their exceptional work. I select a somewhat arbitrary but reasonable range of 8-20 Artisan tokens per Crafting Order and determine the cosmetic prices using this range.
   - Balancing Token Acquisition Across Professions
-    - The most obvious flaw of this currency is that some professions use Crafting Orders far less than the the professions (e.g. Alchemy), and some not at all (e.g. Herbalism). 
+    - An obvious flaw in this currency is that some professions use Crafting Orders far less than the the professions (e.g. Alchemy), and some not at all (e.g. Herbalism). Two potential solutions arise to including these professions in gaining Artisan tokens via social interactions:
+        1) Collaborative Harvesting: Resource nodes harvested by multiple people in a group at the same time awards Artisan Tokens, thus motivating guild/friend harvesting runs.
+        2) Collaborative Projects: Low-demand Crafting Order professions like Alchemy can assist/"collaborate" with Crafting Orders from high-demand professions, such as a piece of gear. Such collaboration is inspiring, boosting the Crafting Order's inspiration and thus probability of increasing in quality. Both collaborators are granted additional Artisan Tokens (a "Collaborative Bonus").
+           - System incentivizes customer by higher chance of better item (and therefore higher tip, and the collaborators with extra Artisan Tokens and a higher chance of receiving a larger tip (players often tip for more higher quality crafts).
  
   - **Artisan Token Cosmetic Store**
-  - 
-   
-    
+    - Here, I will design several cosmetic items for sale in the Artisan Token store; namely, two toys, a pet, a cosmetic armor set, and a mount for the Alchemy profession. I will then carry out statistical modeling to inform the price of the items based on the effort deemed need to obtain the item.
+    * Toys
+        1. Potion of Gigantic Growth
+           - Description: Upon use, the player grows to an enormous size for 5 minutes. The toy has a cool animation of the character drinking a potion and then rapidly expanding.
+           - Special Effect: During the effect, the character's voice is deeper and echoes slightly.
+        
+        2. Flask of Illusory Transformation
+           - Description: Transforms the player into a random alchemical creation (e.g., a living potion bottle, a sentient cauldron, or a bubbling slime) for 10 minutes.
+           - Special Effect: Each transformation has unique idle animations and emotes.
+
+    * Pet
+
+        1. Alchemy Homunculus
+           - Description: A small, animated humanoid creature made of bubbling liquids and arcane energies. It has a tiny cauldron for a body, and its limbs are made of liquid that constantly change color.
+           - Special Abilities: Occasionally brews a small potion that grants a minor buff to the player when consumed.
+
+    * Armor Set
+
+        1. **Master Alchemist’s Regalia**
+           - **Head**: **Alembic Visor** - A helmet with a glass dome filled with swirling mists and arcane symbols.
+           - **Shoulders**: **Philosopher’s Epaulets** - Shoulder pads with arcing glass tubes filled with bubbling potions.
+           - **Chest**: **Transmuter’s Robe** - A robe with intricate patterns that glow faintly, with pockets filled with potions.
+           - **Gloves**: **Tincture Gauntlets** - Gloves with embedded tubes containing colorful liquids, similar to the Epaulets.
+           - **Belt**: **Elixir Sash** - A belt adorned with various flasks and pouches, each emitting a faint glow.
+           - **Leggings**: **Brewer’s Leggings**
+           - **Boots**: **Mender’s Boots**
+             
+     * Mount
+
+        1. **Elixir-Infused Drake**
+           - **Description**: A majestic drake with scales that shimmer in various colors, as if made from liquid potions. Its wings leave a trail of colorful mist as it flies.
+           - **Special Features**: 
+             - **Breath Attack**: The drake occasionally breathes out a cloud of alchemical fumes.
+             - **Alchemy Station**: While mounted, the player can access a portable alchemy station on the drake's back to craft potions on the go.
+
 * **New Status Effect: Flow State**
   - Overview
     - Completing a crafting order grants a status effect, Flow State, that increases inspiration for the next crafting order.
