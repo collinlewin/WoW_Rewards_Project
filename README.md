@@ -33,6 +33,7 @@ Professionals who complete Crafting Orders are rewarded with gold and, less ofte
  
   - **Artisan Token Cosmetic Store**
     - Here, I will design several cosmetic items for sale in the Artisan Token store; namely, two toys, a pet, a cosmetic armor set, and a mount for the Alchemy profession. I will then carry out statistical modeling to inform the price of the items based on the effort deemed need to obtain the item.
+
     * Toys
         1. Potion of Gigantic Growth
            - Description: Upon use, the player grows to an enormous size for 5 minutes. The toy has a cool animation of the character drinking a potion and then rapidly expanding.
