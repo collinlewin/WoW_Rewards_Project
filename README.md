@@ -3,7 +3,9 @@
 </h1>
 For well over a decade, World of Warcraft has sustained my excitement over thousands of hours of collecting mounts, progressing in raids, making friends, and mastering professions. In this project, I will walk through my throught process behind designing and implementing new rewards systems for Azeroth and beyond. 
 
-## Brainstorming
+<h2>
+  <img src="https://github.com/collinlewin/WoW_Rewards_Project/assets/28280691/880d67fa-132f-499b-80b6-5c02f2b9dbfd" width="30%" height="30%">
+</h2>
 
 We will first explore areas of the game in which rewards can be introduced, catering to various types of players. Some of these ideas will be fleshed out more than others and include implementation plans informed by statistical modeling.
 
@@ -12,61 +14,50 @@ Yee (2006) proposed that there are three main types of gamers, each with various
 
 I first considered new rewards that would incentivize gameplay that the social gamers would enjoy. PvE and PvP excel in this department, more often than not requiring teamwork to succeed in mythics, battlegrounds, and arenas, to name a few. Professions, while often a peaceful solo activity, show much potential for additional rewarding of social interaction. The introduction of the Crafting Order system in Dragonflight promoted more interaction between "professionals" and their customers, in contrast to the sole use of the Auction House. I will thus focus on developing rewards that will incentivize use of the Crafting Order system, which I hypothesize will positively impact players that enjoy social interaction and immersion through roleplaying. 
 
-## Crafting Order Reward Systems
-
+<h2>
+  <img src="https://github.com/collinlewin/WoW_Rewards_Project/assets/28280691/24842a7b-fb34-444c-ac85-c5d1aeb622ee" width="60%" height="60%">
+</h2>
 Professionals who complete Crafting Orders are rewarded with gold and, less often, profession levels. Thus, the reward for Crafting Orders is the same as that for using the Auction House in a majority of cases. Additionally, the cadence/schedule for the current Crafting Order reward is short-term in that the main reward (gold) is awarded once per Crafting Order. It might be meaningful to include additional rewards earned over a longer period of time, granting a sense of satisfaction similar to that from long-term career development. Such potential new reward systems could include...
 
 * **New Currency: Artisan Tokens**
 
   - Overview
-    - Introduce a new currency, Artisan Tokens, awarded for completing crafting orders. Artisan Tokens can be exhanged for profession-specific cosmetic items (e.g., transmogs, toys, pets, mounts) at each profession's Artisan Token vendor located near each respective profession station in the capital city.
+    - Introduce a new currency, Artisan Tokens, awarded for completing crafting orders. Artisan Tokens can be exhanged for profession-specific cosmetic items (e.g., transmogs, toys, pets, mounts) at each profession's Artisan Token vendor, located near each profession station in the capital city.
       - Cosmetics for each profession improve immersion through roleplay and customization, as they better reflect the player's identity as a distinguished member of their profession. Bind-on-pickup (BoP) cosmetics also seem relatively simple to implement with respect to (a lack of) economic impacts, etc.
+      - I played it fairly safe for the items in the store, but I noticed that this could be a great place to explore introducing crafting table customizations. Implementation could resemble mount cosmetic options introduced for Dragonriding in Dragonflight.
   - Rate of Reward
     - _Do we encourage players to do Crafting Orders for hours by granting the currency for each order? Do we instead motivate diversity in play by granting the currency for only the first X orders each day? Does the former turn the currency into an unenjoyable grind to get any rewards? Does the latter turn the currency into a daily to-do that players end up dreading?_
       - Limiting the number of token-awarding Crafting Orders per day allows a more fair opportunity to earn tokens for professions that struggle to obtain as many orders as other professions. As such, I will choose to grant Artisan Tokens for the first 4 orders each day to match the current limit of 4 public Crafting Orders per day. Data on the current distribution of Crafting Orders might be more informative for determining this value, but 4 seems reasonable.
   - Amount of Reward
     - More impressive Crafting Orders (e.g., higher ilvl gear) should be rewarded with more Artisan tokens as an extra Reward of Glory that praises the player for their exceptional work. I select a somewhat arbitrary but reasonable range of 8-20 Artisan tokens per Crafting Order and determine the cosmetic prices using this range.
   - Balancing Token Acquisition Across Professions
-    - An obvious flaw in this currency is that some professions use Crafting Orders far less than the the professions (e.g. Alchemy), and some not at all (e.g. Herbalism). Two potential solutions arise to including these professions in gaining Artisan tokens via social interactions:
+    - An obvious flaw in this currency is that some professions use Crafting Orders far less than others (e.g. Alchemy), and some not at all (e.g. gathering professions). Two potential solutions arise to include these professions in gaining Artisan tokens via social interactions:
       1) Collaborative Harvesting: Resource nodes harvested by multiple people in a group at the same time awards Artisan Tokens, thus motivating guild/friend harvesting runs.
-      2) Collaborative Projects: Low-demand Crafting Order professions like Alchemy can assist/"collaborate" with Crafting Orders from high-demand professions, such as a piece of gear. Such collaboration is inspiring, boosting the Crafting Order's inspiration and thus probability of increasing in quality. Both collaborators are granted additional Artisan Tokens (a "Collaborative Bonus").
+      2) Collaborative Projects: Professions in lower demand for Crafting Orders (again, Alchemy comes to mind but data could inform this) can assist/"collaborate" on Crafting Orders from higher-demand professions, such as a piece of gear. Such collaboration is inspiring, boosting the Crafting Order's inspiration and thus probability of increasing in quality. Both collaborators are granted additional Artisan Tokens.
         - System incentivizes customer by higher chance of better item, and the collaborators with extra Artisan Tokens and a higher chance of receiving a larger tip (players often tip more gold for higher quality crafts).
 
-  - **Artisan Token Cosmetic Store**
+  <h3>
+  <img src="https://github.com/collinlewin/WoW_Rewards_Project/assets/28280691/8c4c1dfc-a543-47b1-a93f-c5aea246b860" width="65%" height="65%">
+  </h3>
   
-    - Here, I will design several cosmetic items for sale in the Artisan Token store; namely, two toys, a pet, a cosmetic armor set, and a mount for the Alchemy profession. I will then carry out statistical modeling to inform the price of the items based on the effort deemed need to obtain the item.
-
-    * Toys
-      1. Potion of... Which One Was This Again?
-          - Description: Upon use, the player changes in appearance for 10 minutes, with one of the following changes selected at random: 1) grow in size, 2) shrink in size, 3) becomes a butterfly. The toy has an animation of the character drinking a potion and then the surprise of the effect.
-          - Special Effect: During the effect, the pitch of the character's voice deepens (for growth option), heightens (shrink option), 
+    - Here, I will perform statistical modeling to inform the price of the items in the Artisan Token store; namely, profession-themed toys, pets, a cosmetic armor set, and a mount. By understanding how many tokens players are expected to accumulate after a simulated amount of time, considering their daily activities (i.e., how many orders on average per day), we can set prices that reflect the time and effort chosen to earn these items. The choice of price is essential for ensuring that players feel a sense of accomplishment and reward, without the system becoming an unenjoyable grind.
       
-      2. Alchemy Table
-          - Description: A table equipped with an array of herb-filled bowls next to colorful vials and flasks connected via tubes. The player puts on an exciting performance for all viewers. After the performance is complete, one of the possible cosmetic potions is selected at random. 
-          - Performance: The bunsen burner is turned on below the now-smoking central cauldron. The player juggles the bowls of herbs before pouring them into the main cauldron, each releasing an effect. The performance could depend on the type of cosmetic potion selected at random (i.e. a love potion, with ingredients that release hearts, red mist, etc.).
+    - Instead of assuming a constant number of orders per day, I use a Poisson distribution to capture the variability in daily player activities, as some days might have more or fewer orders than others. The Poisson distribution is particularly well-suited for modeling the number of crafting orders a player completes each day, assuming that crafting orders can be considered as independent events occurring at a roughly constant average rate (λ). This rate represents the average number of orders per day a player is expected to complete; as such, we explore a range of values to explore different levels of engagement. 
+      
+    - To translate this individual variability into a comprehensive understanding of token accumulation over time, we employ Monte Carlo simulations. Monte Carlo methods rely on repeated random sampling, in our case running a large number of simulations to generate a robust distribution of the total tokens accumulated over a specified number of days. This approach allows us to account for the variability and randomness in individual player behavior, providing a detailed statistical understanding of the likely outcomes in token amounts.
+      
+      **Procedure:**
+      
+      1. **Simulating Token Accumulation:**
+         - Each day, the number of crafting orders completed by a player is drawn from a Poisson distribution with a specified λ (average number of orders per day).
+         - As mentioned earlier, the number of tokens will be in the range 8-20 to start, depending on craft quality. To simulate this, the token value of each craft will be drawn at random from a uniform distribution (each value equally likely). 
+      
+      2. **Running Monte Carlo Simulations:**
+         - The above simulation process is repeated 100,000 times for 4 values of λ (corresponding to an average of 1, 2, 3, 4 orders per day). This results in a comprehensive distribution of total tokens for each λ value:
 
-    * Pet
-      1. Bubbling Cauldron
-          - Description: A small cauldron containing a bubbling liquid that releases smoke or another "magical" effects. Two legs made of the liquid sprout through two forcefully made holes near the bottom of the cauldron.
-          - Special Abilities: Occasionally brews a small potion that grants a minor buff to the player when consumed. Alternatively, the liquid could change every few minutes, with each liquid having a different effect.
-
-    * Armor Set
-      1. **Master Alchemist’s Regalia**
-          - **Head**: **Alembic Visor** - A helmet with a glass dome filled with swirling fluid with a shiny mist.
-          - **Shoulders**: **Catalyst Epaulets** - Shoulder pads with arcing glass tubes filled with bubbling fluid matching the headpiece.
-          - **Chest**: **Transmuter’s Robe** - A robe with intricate patterns that glow faintly, with pockets filled with potions.
-          - **Gloves**: **Corrosion-Resistant Gauntlets** - Gloves with embedded tubes containing colorful liquids, similar to the Epaulets.
-          - **Belt**: **Elixir Sash** - A belt adorned with various flasks and pouches, each emitting a faint glow.
-          - **Leggings**: **Reactive Barrier Leggings** 
-          - **Boots**: **Sealed Boots**
-            
-     * Mount
-      1. **Elixir-Infused Drake**
-          - **Description**: A majestic drake with scales that shimmer in various colors, as if made from liquid potions. Its wings leave a trail of colorful mist as it flies.
-          - **Features**: 
-            - **Special Animation**: The drake breathes out a cloud of multi-color alchemical fumes, each color emitting a unique effect (fireworks, fire, etc.)
-            - **Alchemy Station**: While mounted, the player can access a portable alchemy station on the drake's back to craft potions on the go.
-              - Would be powerful, first implementation of a portable profession station outside of engineering (to my knowledge?).
+<p align="center">
+  <img src="https://github.com/collinlewin/WoW_Rewards_Project/assets/28280691/491d2fbb-ab21-4b4b-9f13-8ec2a8886121" width="60%" height="60%">
+</p>
 
 * **New Status Effect: Flow State**
 
