@@ -53,11 +53,13 @@ Professionals who complete Crafting Orders are rewarded with gold and, less ofte
          - As mentioned earlier, the number of tokens will be in the range 8-20 to start, depending on craft quality. To simulate this, the token value of each craft will be drawn at random from a uniform distribution (each value equally likely). 
       
       2. **Running Monte Carlo Simulations:**
-         - The above simulation process is repeated 100,000 times for 4 values of λ (corresponding to an average of 1, 2, 3, 4 orders per day). This results in a comprehensive distribution of total tokens for each λ value:
-
-<p align="center">
-  <img src="https://github.com/collinlewin/WoW_Rewards_Project/assets/28280691/491d2fbb-ab21-4b4b-9f13-8ec2a8886121" width="60%" height="60%">
-</p>
+         - The above simulation process is repeated 100,000 times for 4 values of λ (corresponding to an average of 1, 2, 3, 4 orders per day). This results in a comprehensive distribution of total tokens for each λ value.
+        
+      Let's say the average participating player (meaning $λ = 2-3$ orders per day) should earn a toy in a week time. It seems fair to price a piece of the cosmetic set at roughly the same price of time. We run the Monte Carlo simulations for the course of a week (in simulation time, it takes only a few seconds on my Macbook):
+      <p align="center">
+        <img src="https://github.com/collinlewin/WoW_Rewards_Project/assets/28280691/491d2fbb-ab21-4b4b-9f13-8ec2a8886121" width="60%" height="60%">
+      </p>
+      Based on the results, the price of a toy and average cosmetic set piece should be somewhere in the overlap of the $λ=2, λ=3$ distributions. More specifically, I will use the 75th percentile of the $λ=2$ distribution, meaning that 75% of players who complete 2 crafting orders per day on average will be able to afford the toy/average cosmetic piece after a week. This prices the item at 220 Artisan Tokens, which is equivalent to the 20th percentile of the $λ=3$ distribution. Repeating this procedure for two weeks, which seems fair to afford the pet, and a month to afford the mount and using the 75th percentile of the $λ=2$ distribution results in the following prices:
 
 * **New Status Effect: Flow State**
 
