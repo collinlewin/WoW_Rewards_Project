@@ -1,3 +1,4 @@
+
 <h1 align="center">
   <img src="https://github.com/collinlewin/WoW_Rewards_Project/assets/28280691/af6ea950-8b1b-48ac-b19b-303fc8fd5737" width="50%" height="50%">
 </h1>
@@ -37,8 +38,9 @@ Professionals who complete Crafting Orders are rewarded with gold and, less ofte
         - System incentivizes customer by higher chance of better item, and the collaborators with extra Artisan Tokens and a higher chance of receiving a larger tip (players often tip more gold for higher quality crafts).
 
   <h3>
-  <img src="https://github.com/collinlewin/WoW_Rewards_Project/assets/28280691/8c4c1dfc-a543-47b1-a93f-c5aea246b860" width="65%" height="65%">
+  <img src="https://github.com/collinlewin/WoW_Rewards_Project/assets/28280691/462d3ff3-651a-430d-8fd2-e86e451c16cb" width="65%" height="65%">
   </h3>
+
   
     - Here, I will perform statistical modeling to inform the price of the items in the Artisan Token store; namely, profession-themed toys, pets, a cosmetic armor set, and a mount. By understanding how many tokens players are expected to accumulate after a simulated amount of time, considering their daily activities (i.e., how many orders on average per day), we can set prices that reflect the time and effort chosen to earn these items. The choice of price is essential for ensuring that players feel a sense of accomplishment and reward, without the system becoming an unenjoyable grind.
       
@@ -57,9 +59,53 @@ Professionals who complete Crafting Orders are rewarded with gold and, less ofte
         
       Let's say the average participating player (meaning $λ = 2-3$ orders per day) should earn a toy in a week time. It seems fair to price a piece of the cosmetic set at roughly the same price of time. We run the Monte Carlo simulations for the course of a week (in simulation time, it takes only a few seconds on my Macbook):
       <p align="center">
-        <img src="https://github.com/collinlewin/WoW_Rewards_Project/assets/28280691/491d2fbb-ab21-4b4b-9f13-8ec2a8886121" width="60%" height="60%">
+        <img src="https://github.com/collinlewin/WoW_Rewards_Project/assets/28280691/8306e539-0ce8-418f-944b-c5c33103e7dc" width="60%" height="60%">
       </p>
-      Based on the results, the price of a toy and average cosmetic set piece should be somewhere in the overlap of the $λ=2, λ=3$ distributions. More specifically, I will use the 75th percentile of the $λ=2$ distribution, meaning that 75% of players who complete 2 crafting orders per day on average will be able to afford the toy/average cosmetic piece after a week. This prices the item at 220 Artisan Tokens, which is equivalent to the 20th percentile of the $λ=3$ distribution. Repeating this procedure for two weeks, which seems fair to afford the pet, and a month to afford the mount and using the 75th percentile of the $λ=2$ distribution results in the following prices:
+
+
+      Based on the results, the price of a toy and average cosmetic set piece should be somewhere in the overlap of the $λ=2, λ=3$ distributions. More specifically, I will use the 75th percentile of the $λ=2$ distribution, meaning that 25% of players who complete 2 crafting orders per day on average will be able to afford the toy/average cosmetic piece after a week. This prices the item at 220 Artisan Tokens, which is equivalent to the 20th percentile of the $λ=3$ distribution (80% of these players can afford the item). I repeated this procedure for two weeks, a time span fair for affording the pet again using the 75th percentile of the $λ=2$ distribution. For the mount, I decided on a month to afford the mount for those working a bit harder, instead using the 50th percentile (i.e. the median) of the $λ=3$ distribution. In this case, >99% of those maxing their crafting order tokens limit ($λ=4$) every day for a month could afford the mount. This resulted in the following prices:
+
+<h3 align="center"></h3>
+
+<table>
+  <tr>
+    <td>
+      <table>
+        <tr>
+          <th>Item</th>
+          <th>Price in Time (days)</th>
+          <th>Price in <br>Artisan Tokens</th>
+        </tr>
+        <tr>
+          <td>Toys</td>
+          <td>7</td>
+          <td>220</td>
+        </tr>
+        <tr>
+          <td>Average Transmog<br> Piece</td>
+          <td>7</td>
+          <td>220</td>
+        </tr>
+        <tr>
+          <td>Pets</td>
+          <td>14</td>
+          <td>420</td>
+        </tr>
+        <tr>
+          <td>Mount</td>
+          <td>30</td>
+          <td>1100</td>
+        </tr>
+      </table>
+    </td>
+    <td>
+      <img src="https://github.com/collinlewin/WoW_Rewards_Project/assets/28280691/43f298d1-ba5c-4af1-b67e-9e56190b5ee3">
+    </td>
+
+  </tr>
+
+</table>
+
 
 * **New Status Effect: Flow State**
 
@@ -117,3 +163,16 @@ Professionals who complete Crafting Orders are rewarded with gold and, less ofte
     </td>
   </tr>
 </table>
+
+<h1 align="center">
+  <img src="https://github.com/collinlewin/WoW_Rewards_Project/assets/28280691/9e914fa0-76ea-4e41-b486-ec5960219824" width="20%" height="20%">
+</h1> 
+<p align="center">
+Thank you for reading! I am very grateful for you taking the time in your busy day to read through the project. See you in Azeroth!
+  <br>
+
+<p align="center">  
+ <img alt="Screenshot 2024-06-03 at 8 36 20 PM" src="https://github.com/collinlewin/WoW_Rewards_Project/assets/28280691/4f88c2fe-5778-445c-a175-5acb6d0d3553" width="10%" height="10%"> <br>
+</p>
+</p>
+
