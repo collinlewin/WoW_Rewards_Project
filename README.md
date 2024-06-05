@@ -1,11 +1,10 @@
-
 <h1 align="center">
   <img src="https://github.com/collinlewin/WoW_Rewards_Project/assets/28280691/af6ea950-8b1b-48ac-b19b-303fc8fd5737" width="50%" height="50%">
 </h1>
 
 For over a decade, World of Warcraft has sustained my excitement over thousands of hours of collecting mounts, progressing in raids, hunting achievements, and mastering professions. In this project, I will walk through my thought process behind designing and implementing new rewards systems for Azeroth and beyond. 
 
-- **Disclaimer:** My work background focuses on applying statistical modeling and AI/machine learning techniques to astrophysics and material science. My professional experience with rewards is limited to teaching robots how to navigate environments. While I am a creative and game design enthusiast, this project demonstrates me bringing some of my professional skills into my passion for rewards systems, while acknowledging that I am, professionally, a novice in the game development department. This project aims to showcase my current understanding, but I am excited to learn more through collaboration and apply my background to something I am incredibly passionate about.
+My professional specialization is statistical modeling and artificial intelligence/machine learning techniques, which I have applied to astrophysics and material science. All machine learning algorithms boil down to a reward system: we define a reward (a mathematical function quantifying performance), and how the algorithm chases it (resulting in better performance). I have also researched reward systems used to train robots how to navigate environments, namely how to reward positive actions and penalize negative actions, which ends up defining the trained robot's behavior. Outside of work, I am a creative and game design enthusiast, this project demonstrates me bringing some of my professional skills into my passion for rewards systems. This project aims to showcase my current understanding, but I am excited to learn more through collaboration and apply my background to something I am incredibly passionate about.
 
 <h2>
   <img src="https://github.com/collinlewin/WoW_Rewards_Project/assets/28280691/880d67fa-132f-499b-80b6-5c02f2b9dbfd" width="30%" height="30%">
@@ -15,18 +14,18 @@ First, we will explore areas of the game in which rewards can be introduced, cat
 
 Yee (2006) proposed that there are three main types of gamers, each with various subtypes: _achievement_ (advancement, mechanics, competition), _social_ (socializing, relationship, teamwork), and _immersion_ (discovery, roleplaying, customization, escapism). While players often fall into multiple groups, I found that brainstorming rewards that would enhance the experience for these different player groups to be an interesting starting point for brainstorming. 
 
-- An alternative, perhaps more-optimal starting point would be data-driven; asking, for example, _where are players spending the most time, and how does retention compare across players who prefer pet battles versus raiding versus professions? How do these statistics compare to previous expansions, where different reward systems were in place?_
+- An alternative, perhaps more-optimal starting point would be data-driven; for example, asking _where are players spending the most time, and how does retention compare between players who participate in different activities (e.g., pet battles, raiding, professions)? How do these statistics compare to those in previous expansions, where different reward systems were in place?_
 
 I chose to consider new rewards that would incentivize and make the game more exciting for the social type of gamer. PvE and PvP naturally excel in this department in that they typically require teamwork to succeed in mythics, battlegrounds, arenas, etc. Professions, while often a peaceful solo activity, show potential for additional rewards that encourage social interaction. 
 
-The introduction of the Crafting Order system in Dragonflight promoted more interaction between "professionals" and their customers, in contrast to use of the Auction House alone. I will thus focus on developing rewards that promote use of the Crafting Order system, with the aim of positively impacting players that enjoy social interaction as well as players that enjoy immersion through roleplaying. 
+The introduction of the Crafting Order system in Dragonflight promoted more interaction between "professionals" and their customers, in contrast to use of the Auction House alone. Therefore, I will focus on developing rewards that promote use of the Crafting Order system while making the game more enjoyable for players that prioritize social interaction as well as those who enjoy immersion through roleplaying. 
 
 <h2>
   <img src="https://github.com/collinlewin/WoW_Rewards_Project/assets/28280691/24842a7b-fb34-444c-ac85-c5d1aeb622ee" width="60%" height="60%">
 </h2>
-Players who complete Crafting Orders are rewarded with gold and, less often, profession levels. Thus, the reward for Crafting Orders is the same as that for using the Auction House in most cases. Additionally, the cadence/reward schedule for Crafting Orders is short-term (one reward per order). It might be meaningful to include additional rewards earned over a longer period of time, which could grant an additional sense of pride that resembles long-term career development. Potential new reward systems could include:
+Players who complete Crafting Orders are rewarded with gold and, less often, profession levels. The reward for Crafting Orders is therefore the same as that for using the Auction House in most cases. Additionally, the cadence/reward schedule for Crafting Orders is short-term (one reward per order). It might be meaningful to include additional rewards earned over a longer period of time, which could grant an additional sense of pride that resembles long-term career development. I explore two reward systems: Artisan Tokens and Flow State.
 
-* **New Currency: Artisan Tokens**
+<img src="https://github.com/collinlewin/WoW_Rewards_Project/assets/28280691/2160c8da-abd3-4372-9bff-b62d485eca18" width="50%" height="50%">
 
   - **Overview**
     - A new currency, Artisan Tokens, is awarded for completing crafting orders. Artisan Tokens can be exhanged for profession-specific cosmetic items (e.g., transmogrification armor, toys, pets, mounts). Each profession has their own Artisan Token vendor, located near each profession station in the capital city.
@@ -52,18 +51,16 @@ Players who complete Crafting Orders are rewarded with gold and, less often, pro
           - Professions in lower demand for Crafting Orders (data could inform this) can assist/"collaborate" on Crafting Orders from higher-demand professions; for example, crafting a piece of gear. Such collaboration is inspiring, boosting the Crafting Order's inspiration and thus probability of increasing in quality. Both collaborators are granted additional Artisan Tokens.
             - Use of this system is incentivized by all players involved: customer has a higher chance of receiving a better item, while both collaborators are awarded additional Artisan Tokens and a higher chance of receiving a larger tip (players often tip more gold for higher-quality crafts).
 
-  <h3>
-  <img src="https://github.com/collinlewin/WoW_Rewards_Project/assets/28280691/462d3ff3-651a-430d-8fd2-e86e451c16cb" width="65%" height="65%">
-  </h3>
-
-    Here, I perform statistical modeling to inform the price of the items in the Artisan Token store; namely, toys, pets, a cosmetic armor set, and a mount. By predicting how many tokens players are expected to accumulate after some amount of time, while accounting for differences in daily activities (i.e., how many orders completed per day on average), we can set prices that reflect the time and effort we believe should be required to earn these items. Setting a well-informed price is essential to ensure that players feel accomplished, without the system becoming an unenjoyable grind.
-        
-    Instead of assuming a constant number of orders per day, I use a Poisson distribution to capture player variability, with some days having greater or fewer orders than other days. The Poisson distribution is particularly well-suited for modeling the daily number of Crafting Orders, assuming that each order can be considered as an independent event occurring at a roughly constant average rate (λ).
-   - This rate reflects the player's engagement to the system, and is equal to the average number of orders completed per day. I thus explore a range of values to account for different levels of engagement. 
-        
-    I then carried out a set of Monte Carlo simulations to translate the randomness in individual player behavior into an understanding of the likely outcomes in accrued token amounts. Monte Carlo methods rely on repeated random sampling, in this case running a large number of simulations, where each simulation represents a player at a specified level of engagement λ. This process results in distributions of the total tokens accumulated over the specified number of days.
+  ### Simulations for Cosmetic Store Pricing
   
-    **Detailed Procedure:**
+  Here, I perform statistical modeling to inform the price of the items in the Artisan Token store; namely, toys, pets, a cosmetic armor set, and a mount. By predicting how many tokens players are expected to accumulate after some amount of time, while accounting for differences in daily activities (i.e., how many orders completed per day on average), we can set prices that reflect the time and effort we believe should be required to earn these items. Setting a well-informed price is essential to ensure that players feel accomplished, without the system becoming an unenjoyable grind.
+          
+  Instead of assuming a constant number of orders per day, I use a Poisson distribution to capture player variability, with some days having greater or fewer orders than other days. The Poisson distribution is particularly well-suited for modeling the daily number of Crafting Orders, assuming that each order can be considered as an independent event occurring at a roughly constant average rate (λ).
+     - This rate reflects the player's engagement to the system, and is equal to the average number of orders completed per day, so I explore a range of values to account for different levels of engagement. 
+          
+  I then carried out a set of Monte Carlo simulations to translate the randomness in individual player behavior into an understanding of the likely outcomes in accrued token amounts. Monte Carlo methods rely on repeated random sampling, in this case running a large number of simulations, where each simulation represents a player at a specified level of engagement λ. This process results in distributions of the total tokens accumulated over the specified number of days.
+  
+  **Detailed Procedure:**
 
   - Source code available in repo, see crafting_orders.ipynb.
     
@@ -74,15 +71,15 @@ Players who complete Crafting Orders are rewarded with gold and, less often, pro
   2. **Running Monte Carlo Simulations:**
      - The simulation process above (section i) is repeated 100,000 times for 4 values of λ (corresponding to an average of 1, 2, 3, 4 orders per day). This results in a comprehensive distribution of total tokens for each λ value.
       
-    Let's say the average participating player, meaning $λ = 2-3$ orders per day on average, should earn a toy in a week's time. It seems fair to price a piece of the cosmetic set at roughly the same price in time as a toy. We simulate a week of token accrual using the Monte Carlo simulations:
+  Let's say the average participating player, meaning $λ = 2-3$ orders per day on average, should earn a toy in a week's time. It seems fair to price a piece of the cosmetic set at roughly the same price in time as a toy. We simulate a week of token accrual using the Monte Carlo simulations:
     <p align="center">
       <img src="https://github.com/collinlewin/WoW_Rewards_Project/assets/28280691/8306e539-0ce8-418f-944b-c5c33103e7dc" width="60%" height="60%">
     </p>
 
-    
-    Based on the previous pricing criteria, the price of a toy and average cosmetic set piece should be somewhere in the overlap of the $λ=2, λ=3$ distributions. I will specifically use the 75th percentile of the $λ=2$ distribution, meaning that 25% of players who complete 2 crafting orders per day on average will be able to afford the toy or cosmetic piece after a week. This prices the item at 220 Artisan Tokens, which is equivalent to the 20th percentile of the $λ=3$ distribution (80% of these players can afford the item).
+  
+  Based on the previous pricing criteria, the price of a toy and average cosmetic set piece should be somewhere in the overlap of the $λ=2, λ=3$ distributions. I will specifically use the 75th percentile of the $λ=2$ distribution, meaning that 25% of players who complete 2 crafting orders per day on average will be able to afford the toy or cosmetic piece after a week. This prices the item at 220 Artisan Tokens, which is equivalent to the 20th percentile of the $λ=3$ distribution (80% of these players can afford the item).
 
-    I repeated this procedure, simulating two weeks of token earnings, a fair time span for affording the pet again. I again price the item at the 75th percentile of the $λ=2$ distribution. I decided on a month to afford the mount for those working a bit harder, so instead using the 50th percentile (i.e. the median) of the $λ=3$ distribution. In this case, >99% of those maxing their crafting order tokens limit ($λ=4$) every day for a month could afford the mount. This resulted in the following prices and distributions for 30 days of token accrual:
+  I repeated this procedure, simulating two weeks of token earnings, a fair time span for affording the pet again. I again price the item at the 75th percentile of the $λ=2$ distribution. I decided on a month to afford the mount for those working a bit harder, so instead using the 50th percentile (i.e. the median) of the $λ=3$ distribution. In this case, >99% of those maxing their crafting order tokens limit ($λ=4$) every day for a month could afford the mount. This resulted in the following prices and distributions for 30 days of token accrual:
 
 <h3 align="center"></h3>
 
@@ -125,7 +122,7 @@ Players who complete Crafting Orders are rewarded with gold and, less often, pro
 
 </table>
 
-* **New Status Effect: Flow State**
+<img src="https://github.com/collinlewin/WoW_Rewards_Project/assets/28280691/6d6ecda2-d06d-4390-a97c-8f238cf862dd" width="50%" height="50%">
 
   - **Overview**
     - Completing a crafting order grants a status effect, Flow State, that increases inspiration for the next crafting order.
