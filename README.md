@@ -3,35 +3,35 @@
   <img src="https://github.com/collinlewin/WoW_Rewards_Project/assets/28280691/af6ea950-8b1b-48ac-b19b-303fc8fd5737" width="50%" height="50%">
 </h1>
 
-For over a decade, World of Warcraft has sustained my excitement over thousands of hours of collecting mounts, progressing in raids, hunting achievements, and mastering professions. In this project, I will walk through my throught process behind designing and implementing new rewards systems for Azeroth and beyond. 
+For over a decade, World of Warcraft has sustained my excitement over thousands of hours of collecting mounts, progressing in raids, hunting achievements, and mastering professions. In this project, I will walk through my thought process behind designing and implementing new rewards systems for Azeroth and beyond. 
 
-- **Disclaimer:** My professional background is in applying statistical modeling and artificial intelligence/machine learning to astrophysics and material science. Outside of work, I am a creative and game design enthusiast. As such, this project demonstrates me bringing some my professional skills into my passion for rewards systems, although I acknowledge that I am, at a professional level, a novice in this department. This project aims to show my current understanding, and I am excited to learn more and grow through collaboration and from my superiors.
+- **Disclaimer:** My work background focuses on applying statistical modeling and AI/machine learning techniques to astrophysics and material science. My professional experience with rewards is limited to teaching robots how to navigate environments. While I am a creative and game design enthusiast, this project demonstrates me bringing some of my professional skills into my passion for rewards systems, while acknowledging that I am, professionally, a novice in the game development department. This project aims to showcase my current understanding, but I am excited to learn more through collaboration and apply my background to something I am incredibly passionate about.
 
 <h2>
   <img src="https://github.com/collinlewin/WoW_Rewards_Project/assets/28280691/880d67fa-132f-499b-80b6-5c02f2b9dbfd" width="30%" height="30%">
 </h2>
 
-We will first explore areas of the game in which rewards can be introduced, catering to various types of players. Some of these ideas will be fleshed out more than others and include plans for implementation that are informed by statistical modeling.
+First, we will explore areas of the game in which rewards can be introduced, catering to various types of players. Some of these ideas will be fleshed out more than others and include plans for implementation that are informed by statistical modeling.
 
-Yee (2006) proposed that there are three main types of gamers, each with various subtypes: _achievement_ (advancement, mechanics, competition), _social_ (socializing, relationship, teamwork) and _immersion_ (discovery, roleplaying, customization, escapism). While players often fall into multiple groups, I found that brainstorming rewards that would enhance the experience for these different player groups to be an interesting starting point. 
+Yee (2006) proposed that there are three main types of gamers, each with various subtypes: _achievement_ (advancement, mechanics, competition), _social_ (socializing, relationship, teamwork), and _immersion_ (discovery, roleplaying, customization, escapism). While players often fall into multiple groups, I found that brainstorming rewards that would enhance the experience for these different player groups to be an interesting starting point for brainstorming. 
 
-- An alternative, perhaps more-optimal starting point would be data-driven; asking, for example, _where are players spending the most time, and how does retention compare across players who prefer pet battles versus raiding versus professions? How do these statistics compare to previous expansions, where alternative reward systems were in place?_
+- An alternative, perhaps more-optimal starting point would be data-driven; asking, for example, _where are players spending the most time, and how does retention compare across players who prefer pet battles versus raiding versus professions? How do these statistics compare to previous expansions, where different reward systems were in place?_
 
 I chose to consider new rewards that would incentivize and make the game more exciting for the social type of gamer. PvE and PvP naturally excel in this department in that they typically require teamwork to succeed in mythics, battlegrounds, arenas, etc. Professions, while often a peaceful solo activity, show potential for additional rewards that encourage social interaction. 
 
-The introduction of the Crafting Order system in Dragonflight promoted more interaction between "professionals" and their customers, in contrast to use of the Auction House alone. I will thus focus on developing rewards that will promote use of the Crafting Order system, with the aim of positively impacting players that enjoy social interaction as well as players that enjoy immersion through roleplaying. 
+The introduction of the Crafting Order system in Dragonflight promoted more interaction between "professionals" and their customers, in contrast to use of the Auction House alone. I will thus focus on developing rewards that promote use of the Crafting Order system, with the aim of positively impacting players that enjoy social interaction as well as players that enjoy immersion through roleplaying. 
 
 <h2>
   <img src="https://github.com/collinlewin/WoW_Rewards_Project/assets/28280691/24842a7b-fb34-444c-ac85-c5d1aeb622ee" width="60%" height="60%">
 </h2>
-Players who complete Crafting Orders are rewarded with gold and, less often, profession levels. Thus, the reward for Crafting Orders is the same as that for using the Auction House in a majority of cases. Additionally, the cadence/reward schedule for Crafting Orders is short-term (one reward per order). It might be meaningful to include additional rewards earned over a longer period of time, which could grant an additional sense of pride that resembles long-term career development. Such potential new reward systems could include...
+Players who complete Crafting Orders are rewarded with gold and, less often, profession levels. Thus, the reward for Crafting Orders is the same as that for using the Auction House in most cases. Additionally, the cadence/reward schedule for Crafting Orders is short-term (one reward per order). It might be meaningful to include additional rewards earned over a longer period of time, which could grant an additional sense of pride that resembles long-term career development. Potential new reward systems could include:
 
 * **New Currency: Artisan Tokens**
 
   - **Overview**
     - A new currency, Artisan Tokens, is awarded for completing crafting orders. Artisan Tokens can be exhanged for profession-specific cosmetic items (e.g., transmogrification armor, toys, pets, mounts). Each profession has their own Artisan Token vendor, located near each profession station in the capital city.
       - Cosmetics unique to each profession improve immersion through roleplay that comes with customization, which as a whole better reflects the player's identity as a distinguished member of their profession. Bind-on-pickup cosmetics also seem relatively simple to implement in terms of (minimal) economic impacts, etc.
-      - While I played it safe for the types of cosmetic items sold in the store, I noticed that this could be a great place to explore introducing vanity options for each players's profession stations. Implementation could resemble the mount customization options introduced for Dragonriding in Dragonflight.
+      - While I played it safe for the types of cosmetic items sold in the store, I noticed that this could be a great place to explore introducing vanity options for each player's profession stations. Implementation could resemble the mount customization options introduced for Dragonriding in Dragonflight.
      
   - **Rate of Reward**
     - _Do we encourage players to do Crafting Orders for hours by granting Artisan Tokens for each order? Do we instead motivate diversity in play activities by granting the currency for only the first X orders each day? Does the former turn the currency into an unenjoyable grind? Does the latter turn the currency into a daily to-do that players end up dreading?_
@@ -74,15 +74,15 @@ Players who complete Crafting Orders are rewarded with gold and, less often, pro
   2. **Running Monte Carlo Simulations:**
      - The simulation process above (section i) is repeated 100,000 times for 4 values of λ (corresponding to an average of 1, 2, 3, 4 orders per day). This results in a comprehensive distribution of total tokens for each λ value.
       
-    Let's say the average participating player, meaning $λ = 2-3$ orders per day on average, should earn a toy in a week time. It seems fair to price a piece of the cosmetic set at roughly the same price in time as a toy. We simulate a week of token accrual using the Monte Carlo simulations:
+    Let's say the average participating player, meaning $λ = 2-3$ orders per day on average, should earn a toy in a week's time. It seems fair to price a piece of the cosmetic set at roughly the same price in time as a toy. We simulate a week of token accrual using the Monte Carlo simulations:
     <p align="center">
       <img src="https://github.com/collinlewin/WoW_Rewards_Project/assets/28280691/8306e539-0ce8-418f-944b-c5c33103e7dc" width="60%" height="60%">
     </p>
 
     
-    Based on the previous pricing criteria, the price of a toy and average cosmetic set piece should be somewhere in the overlap of the $λ=2, λ=3$ distributions. I will specifically use the 75th percentile of the $λ=2$ distribution, meaning that 25% of players who complete 2 crafting orders per day on average will be able to afford the toy/cosmetic piece after a week. This prices the item at 220 Artisan Tokens, which is equivalent to the 20th percentile of the $λ=3$ distribution (80% of these players can afford the item).
+    Based on the previous pricing criteria, the price of a toy and average cosmetic set piece should be somewhere in the overlap of the $λ=2, λ=3$ distributions. I will specifically use the 75th percentile of the $λ=2$ distribution, meaning that 25% of players who complete 2 crafting orders per day on average will be able to afford the toy or cosmetic piece after a week. This prices the item at 220 Artisan Tokens, which is equivalent to the 20th percentile of the $λ=3$ distribution (80% of these players can afford the item).
 
-    I repeated this procedure, simulating two weeks of token earnings, a time span fair for affording the pet again. I again price the item at the 75th percentile of the $λ=2$ distribution. I decided on a month to afford the mount for those working a bit harder, so instead using the 50th percentile (i.e. the median) of the $λ=3$ distribution. In this case, >99% of those maxing their crafting order tokens limit ($λ=4$) every day for a month could afford the mount. This resulted in the following prices and distributions for 30 days of token accrual:
+    I repeated this procedure, simulating two weeks of token earnings, a fair time span for affording the pet again. I again price the item at the 75th percentile of the $λ=2$ distribution. I decided on a month to afford the mount for those working a bit harder, so instead using the 50th percentile (i.e. the median) of the $λ=3$ distribution. In this case, >99% of those maxing their crafting order tokens limit ($λ=4$) every day for a month could afford the mount. This resulted in the following prices and distributions for 30 days of token accrual:
 
 <h3 align="center"></h3>
 
@@ -132,7 +132,7 @@ Players who complete Crafting Orders are rewarded with gold and, less often, pro
       - An interesting alternative is to buff either a random crafting stat or the player's highest crafting stat, which could emphasize the player's crafting build/prioritized stat and thus an identity for immersion purposes.
         
   - **Duration**
-    - I am divided between two options for the buff duration: ~30 minutes, or 24 hours. The former motivates a single, continuous session of orders. The latter motivates a daily "streak"-style engagement of the feature. In either case, the duration is short enough to motivate more crafting orders, but not too short as to bring source of stress and hasty rudeness to the next customer.
+    - I am divided between two options for the buff duration: ~30 minutes, or 24 hours. The former motivates a single, continuous session of orders. The latter motivates a daily 'streak'-style engagement with the feature. In either case, the duration is short enough to motivate more crafting orders, but not too short as to bring source of stress and hasty rudeness to the next customer.
       
   - **Stacking**
     - Another consideration is whether the effect will stack; that is, if the player completes an order before the buff expires, the duration will be reset and the player will gain a stack. Additional stacks will provide additional inspiration gain and thus incentivize "keeping the ball rolling", i.e. sustained Crafting Order completion.
@@ -141,7 +141,7 @@ Players who complete Crafting Orders are rewarded with gold and, less often, pro
     - Without stacking, the buff could increase inspiration by either a flat amount, or a percentage of the user's current inspiration.
       - Buffing by a flat amount could avoid encouraging more players into an inspiration-focused build, as would be the case with a percentage-informed buff.
     - With stacking, a linear scaling of inspiration gained ($IG$) with the number of stacks ($s$) is likely too extreme. Instead, a slower, logarithmic growth seems more appropriate: $$IG = C \ln(s + 1)$$ where $C$ is a constant that rescales the amount of inspiration gained. Note: $s+1$ is used within the logarithm such that $IG(0) = 0$, meaning that no inspiration is gained without a stack.
-    - To gauge a reasonable value for C, we recall that 10 more points of inspiration translates to a 1% increase in probability of crafting an item with higher base skill. To put this into recent context, the Elemental Lariat is a neck item that Jewelcrafters create, often for Crafting Orders. Crafting the 418-ilvl version of the item requires an inspiration proc (the skill required to craft a 418-item-level version is below the maximum skill that a player can have). A 3-8% buff in inspiration is equivalent to 3-8 more 418-ilvl Lariats expected for each 100 crafted, which seems like a safe range for the buff while remaining enticing enough to be sought after. Using this 3% lower bound on the buff results in $C = 30 / \ln(2) = 43.3$, with the following inspiration gains as a function of stack number:
+    - To determine a reasonable value for C, we recall that 10 more points of inspiration translate to a 1% increase in probability of crafting an item with higher base skill. To put this into recent context, the Elemental Lariat is a neck item that Jewelcrafters commonly craft for Crafting Orders. Crafting the 418-ilvl version of the item requires an inspiration proc (the skill required to craft a 418-item-level version is below the maximum skill that a player can have). A 3-8% buff in inspiration is equivalent to 3-8 more 418-ilvl Lariats expected for each 100 crafted, which seems like a safe range for the buff while remaining enticing enough to be sought after. Using this 3% lower bound on the buff results in $C = 30 / \ln(2) = 43.3$, with the following inspiration gains as a function of stack number:
     
 <h3 align="center"></h3>
 
